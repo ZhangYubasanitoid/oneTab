@@ -5,6 +5,7 @@ Vue.config.productionTip = false
 
 //bottstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+ import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 
 //自定义组件
 import messagebox from './ustils/messagebox/index'
@@ -37,20 +38,20 @@ context.keys().forEach(fileName => {
   )
 })
 
-var oba = {
-  a:'sgd'
-}
-var a_oba = Object.defineProperty(oba,'a',{
-  get:function () {
-    console.log('get');
-    return 'geta'
-  },
-  set:function () {
-    console.log('set');
-  }
-})
+// var oba = {
+//   a:'sgd'
+// }
+// var a_oba = Object.defineProperty(oba,'a',{
+//   get:function () {
+//     console.log('get');
+//     return 'geta'
+//   },
+//   set:function () {
+//     console.log('set');
+//   }
+// })
 
-console.log(a_oba.a);
+// console.log(a_oba.a);
 
 
 new Vue({

@@ -4,12 +4,17 @@
      btn${plan?'-outline':''}-${type=='text'?'link':type} ${size=='large'?'btn-lg':(size=='small'?'btn-sm':'')}`">
         <slot></slot>
     </button> -->
-    <button @click="add" style="margin:10px;" :disabled='loading'
+    <button @click="add" style="margin:10px;" :disabled='disabled '
+     type="button" class="btn"  :class="`btn${plan?'-outline':''}-${type=='text'?'link':type}
+      ${cls}`">
+        <slot></slot>
+    </button>
+    <!-- <button @click="add" style="margin:10px;" :disabled='loading '
      type="button" class="btn"  :class="`btn${plan?'-outline':''}-${type=='text'?'link':type}
       ${cls}`">
        <span v-if="loading" type=margin-right:6px class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         <slot></slot>
-    </button>
+    </button> -->
 </template>
 
 <script>
@@ -22,6 +27,10 @@ export default {
         }
     },
     props:{
+        disabled:{
+             type:Boolean,
+            default:false
+        },
         type:{
             type:String,
             default:'light'
