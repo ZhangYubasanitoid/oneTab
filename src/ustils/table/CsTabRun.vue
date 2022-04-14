@@ -29,12 +29,13 @@ export default {
              typr:Array,
              required:true,
          },
-         width:{
+          width:{
              type:String,
              default:''
          },
          height:{
-             type:Number
+             type:String,
+             default:'300'
          }
          
      },
@@ -65,33 +66,36 @@ export default {
      },  
      render(){
          return(
-             <table class="table table-striped table-hover table-bordered">
-                <thead>
-                        <tr>
-                            {this.$slots.default}
-                            <th class='el-table__cell gutter'  style={{'width':17+ 'px'}}></th>
-                        </tr>
-                </thead>
-                <tbody >
-                  {this.datt.map((btn,index)=>(
-                      <tr style={{'max-height':100+'px'}}>
-                      {this.childer.map((item)=>{
-                          if (item.type=='selection'){
-                            return  <td style={{'text-align':item.align}}><input type="checkbox" v-model={this.seleTanCheck} value={btn}/></td>
-                          }else if (item.type=='index') {
-                              return <td style={{'text-align':item.align}}>{index+1} </td>
-                          }else{
-                              return <td style={{'text-align':item.align}}>
-                               {item.$scopedSlots.default?item.$scopedSlots.default({$index:index,res:btn}):btn[item.prop]}
-                              </td>
-                          }
-                      })}
-                      </tr>
-                      )
-                  )}
-                </tbody>
-        </table>
-             
+            <div style={{ 'margin': 'auto'}}>
+                    <table class="table table-striped table-hover table-bordered" >
+                        <thead>
+                                <tr >
+                                    {this.$slots.default}
+                                    <th  class='el-table__cell gutter'  style={{'width':17+ 'px','margin':0,'padding':0}}></th>
+                                </tr>
+                        </thead>
+                    </table>
+                <div class='aaa' style={{'max-height':(this.height+'px')}}>
+                    <table class="table table-striped table-hover table-bordered ">
+                        <tbody>
+                            {this.datt.map((btn,index)=>(
+                                <tr>
+                                {this.childer.map((item)=>{
+                                    if (item.type=='selection'){
+                                        return  <td style={{'text-align':item.align,'width':item.width+ 'px'}}><input type="checkbox" v-model={this.seleTanCheck} value={btn}/></td>
+                                    }else if (item.type=='index') {
+                                        return <td style={{'text-align':item.align,'width':item.width+ 'px'}}>{index+1} </td>
+                                    }else{
+                                        return <td style={{'text-align':item.align,'width':item.width+ 'px'}}>
+                                        {item.$scopedSlots.default?item.$scopedSlots.default({$index:index,res:btn}):btn[item.prop]}
+                                        </td>
+                                    }})}
+                                </tr>
+                            ))} 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
          )
      }
 }
@@ -105,12 +109,12 @@ tbody td :first-child{
      border-left: 1px solid #e9ecef;
 }
 .table{
-    width: 80%;
-    margin: auto;
-
+    margin: 0;
+    padding: 0;
 }
 .aaa{
-    max-height: 100px;
+    overflow: hidden;
     overflow-y:scroll;
+    overflow-x:scroll;
 }
 </style>

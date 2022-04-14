@@ -4,7 +4,7 @@
      btn${plan?'-outline':''}-${type=='text'?'link':type} ${size=='large'?'btn-lg':(size=='small'?'btn-sm':'')}`">
         <slot></slot>
     </button> -->
-    <button @click="add" style="margin:10px;" :disabled='disabled '
+    <button @click="add" style="margin:0  0 0 6px;" :disabled='disabled '
      type="button" class="btn"  :class="`btn${plan?'-outline':''}-${type=='text'?'link':type}
       ${cls}`">
         <slot></slot>

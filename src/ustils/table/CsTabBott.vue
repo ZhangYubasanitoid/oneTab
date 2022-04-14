@@ -1,5 +1,5 @@
 <template>
-    <th v-if="type=='index'" scope="col" :style="'text-align:'+align" >
+    <th v-if="type=='index'" scope="col" :style="{'line-height': 41+'px','text-align':align,'padding':0}" >
         <div>#</div>
     </th>
     <th v-else-if="type=='selection'" scope="col" :style="'text-align:'+align">
@@ -32,7 +32,7 @@ export default {
             type:String
         },
         width:{
-            type:String
+            type:String,
         },
         align:{
             type:String
@@ -88,7 +88,7 @@ export default {
 
     },
     mounted () {
-        this.$el.style.width=this.width+'vh'
+        this.$el.style.width=this.width+'px'
     },
 }
 </script>
