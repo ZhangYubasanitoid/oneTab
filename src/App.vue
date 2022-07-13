@@ -51,7 +51,7 @@
     <hr>
     <!-- <zy-counter v-model="num" @change="handleChange" :min="1" :max="10" label="描述文字"></zy-counter> -->
     <hr>
-    <span>复选框</span>
+    <!-- <span>复选框</span>
     <zy-check v-model="check"></zy-check>
     {{check}}
     <span>头像</span>
@@ -59,11 +59,14 @@
     <span>文件上传</span>
     <zy-upload></zy-upload>
     <span>导航</span>
-    <zy-navigation></zy-navigation>
+    <zy-navigation></zy-navigation> -->
+    
+    <button @click="buttoncli">124</button>
     </div>
 </template>
 
 <script>
+import screenfull from 'screenfull'
 export default {
     data() {
         return {
@@ -80,13 +83,21 @@ export default {
     methods: {
         handleChange($event){
             console.log($event);
-        }
+        },
+          buttoncli(){
+                if (!screenfull.enabled) { // 如果不允许进入全屏，发出不允许提示
+                alert('不支持全屏')
+                return false
+             }
+              screenfull.toggle()
+              
+            }
     },
     components: {
-        ZyCheck:()=>import('./ustils/form/ZyCheck.vue'),
-        ZyHeader:()=>import('./ustils/header/ZyHeader.vue'),
-        ZyUpload:()=>import('./ustils/upload/ZyUpload.vue'),
-        ZyNavigation:()=>import('./ustils/navigation/ZyNavigation.vue'),
+        // ZyCheck:()=>import('./ustils/form/ZyCheck.vue'),
+        // ZyHeader:()=>import('./ustils/header/ZyHeader.vue'),
+        // ZyUpload:()=>import('./ustils/upload/ZyUpload.vue'),
+        // ZyNavigation:()=>import('./ustils/navigation/ZyNavigation.vue'),
         // ZyTooltip :()=>import('./ustils/form/ZyTooltip.vue'),
         // ZyInput:()=>import('./ustils/form/ZyInput.vue'),
         // ZyRadio:()=>import('./ustils/form/ZyRadio.vue'),
